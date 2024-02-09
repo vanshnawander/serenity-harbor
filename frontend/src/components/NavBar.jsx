@@ -12,7 +12,7 @@ const NavBar = () => {
           <div className="flex flex-row gap-10 items-center">
               <p onClick={()=>navigate('/home')} className="text-lg font-semibold cursor-pointer text-green-500">Home</p>
               <p onClick={()=>navigate('/chat')} className="text-lg font-semibold cursor-pointer text-green-500">Chat</p>
-              <p onClick={()=>navigate('/contact')} className="text-lg font-semibold cursor-pointer text-green-500">Contact</p>
+              <p className="text-lg font-semibold cursor-pointer text-green-500">Contact</p>
           </div>
         <div className="flex flex-row mt-10 h-fit gap-5 items-center">
           <Button

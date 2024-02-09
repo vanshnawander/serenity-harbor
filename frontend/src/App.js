@@ -69,7 +69,7 @@ export default function App() {
 					element={
 						userType !== null ? (
 							userType === "consumer" ? (
-								<HomePage />
+								<LandingPage />
 							) : (
 								<AdminPage />
 							)
