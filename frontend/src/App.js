@@ -80,7 +80,7 @@ export default function App() {
 				/>
 				<Route
 					path="/chat"
-					element={
+					element={isUserLoggedIn?(
 						userType !== null ? (
 							userType === "consumer" ? (
 								<ChatPage />
@@ -89,7 +89,7 @@ export default function App() {
 							)
 						) : (
 							<HomePage />
-						)
+						)):(<LoginPage />)
 					}
 				/>
 			</Routes>
