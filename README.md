@@ -12,6 +12,11 @@ python -m venv venv
 
 Activate the virtual environment:
 
+for windows
+```bash
+.\venv\Scripts\activate
+```
+for Linux
 ```bash
 source venv/bin/activate
 ```
@@ -44,6 +49,12 @@ Start the frontend development server:
 
 ```bash
 npm start
+```
+
+Create a .env file in the frontend directory and add the following
+
+```
+REACT_APP_BACKEND_HOST=http://localhost:8080
 ```
 
 Use /login /register and /chat if some of the pages are in development and you cannot access pages.
