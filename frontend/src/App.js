@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ChatPage from "./components/ChatPage";
 import LoginPage from "./components/LoginPage";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/HomePage/HomePage";
 import AdminPage from "./components/AdminPage";
 import LandingPage from "./components/LandingPage";
 import RegisterPage from "./components/RegisterPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoadingOverlay from "./components/LoadingOverlay";
+import Dashboard from "./components/Dashboard";
 
 export default function App() {
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -54,22 +55,23 @@ export default function App() {
 			<Routes>
 				<Route
 					path="/"
-					element={isUserLoggedIn ? <Navigate to="/home" /> : <HomePage />}
+					element={isUserLoggedIn ? <Navigate to="/dashboard" /> : <HomePage />}
 				/>
 				<Route
 					path="/login"
-					element={isUserLoggedIn ? <Navigate to="/home" /> : <LoginPage />}
+					element={isUserLoggedIn ? <Navigate to="/dashboard" /> : <LoginPage />}
 				/>
 				<Route
 					path="/register"
-					element={isUserLoggedIn ? <Navigate to="/home" /> : <RegisterPage />}
+					element={isUserLoggedIn ? <Navigate to="/dashboard" /> : <RegisterPage />}
 				/>
+
 				<Route
-					path="/home"
+					path="/dashboard"
 					element={
 						userType !== null ? (
 							userType === "consumer" ? (
-								<ChatPage />
+								<Dashboard />
 							) : (
 								<AdminPage />
 							)
