@@ -3,7 +3,6 @@ import ChatPage from "./components/ChatPage";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import AdminPage from "./components/AdminPage";
-import LandingPage from "./components/LandingPage";
 import RegisterPage from "./components/RegisterPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoadingOverlay from "./components/LoadingOverlay";
@@ -82,18 +81,17 @@ export default function App() {
 				/>
 				<Route
 					path="/chat"
-					element={isUserLoggedIn?(
+					element={ isUserLoggedIn? (
 						userType !== null ? (
 							userType === "consumer" ? (
 								<ChatPage />
 							) : (
 								<AdminPage />
 							)
-						) : (
+						):<HomePage /> ) : (
 							<HomePage />
-						)
-					}
-				/>
+						)}
+			    />
 			</Routes>
 		</div>
 	);

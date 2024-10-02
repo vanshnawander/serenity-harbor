@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import jwt, os
 from openaiapi import fetch_openai_response,text_to_speech
+from geminiapi import fetch_gemini_response
 from dbutils import register_user, authenticate_user, mark_inactive, get_user_details, store_invite, fetch_invites, manage_invite, fetch_consumers_with_admin, get_chat_history_for_date, fetch_chat_summaries
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -54,7 +55,7 @@ async def fetch_response():
         username = decode_token(request.json.get('token'))
         user_prompt = request.json.get('userprompt')
         initial_prompts = request.json.get('initial_responses')
-        response = await fetch_openai_response(user_prompt, username, initial_prompts)
+        response = await fetch_gemini_response(user_prompt, username, initial_prompts)
         return jsonify({'response': response})
 
     except Exception as e:
@@ -184,4 +185,4 @@ def handle_text_to_speech():
 #         return jsonify({'error': str(e)}), 500
     
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=8000)
